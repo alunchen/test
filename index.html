@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛博朋克俄罗斯方块</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>赛博朋克<span class="highlight">俄罗斯方块</span></h1>
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="score-label">分数</div>
+                    <div id="score" class="score-value">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">等级</div>
+                    <div id="level" class="score-value">1</div>
+                </div>
+                <div class="score-box">
+                    <div class="score-label">行数</div>
+                    <div id="lines" class="score-value">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-area-container">
+            <div class="game-area">
+                <canvas id="tetris" width="300" height="600"></canvas>
+                <div class="grid-overlay"></div>
+                <div class="scan-line"></div>
+            </div>
+            
+            <div class="game-sidebar">
+                <div class="next-piece-container">
+                    <div class="sidebar-title">下一个</div>
+                    <canvas id="nextPiece" width="120" height="120"></canvas>
+                </div>
+                
+                <div class="controls-container">
+                    <div class="sidebar-title">控制</div>
+                    <ul class="controls-list">
+                        <li><span class="key">←</span> <span class="key-desc">左移</span></li>
+                        <li><span class="key">→</span> <span class="key-desc">右移</span></li>
+                        <li><span class="key">↓</span> <span class="key-desc">加速</span></li>
+                        <li><span class="key">↑</span> <span class="key-desc">旋转</span></li>
+                        <li><span class="key">空格</span> <span class="key-desc">直接落下</span></li>
+                        <li><span class="key">P</span> <span class="key-desc">暂停</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-footer">
+            <button id="start-button" class="cyber-button">开始游戏</button>
+            <button id="pause-button" class="cyber-button" disabled>暂停</button>
+            <button id="reset-button" class="cyber-button">重置</button>
+        </div>
+    </div>
+    
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p>你的最终分数: <span id="final-score">0</span></p>
+            <button id="restart-button" class="cyber-button">再来一局</button>
+        </div>
+    </div>
+    
+    <div id="pause-modal" class="modal">
+        <div class="modal-content">
+            <h2>游戏暂停</h2>
+            <button id="resume-button" class="cyber-button">继续游戏</button>
+        </div>
+    </div>
+    
+    <script src="js/tetris.js"></script>
+</body>
+</html> 
